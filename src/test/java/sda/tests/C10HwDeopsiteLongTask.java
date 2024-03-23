@@ -1,13 +1,12 @@
 package sda.tests;
 
-import com.beust.ah.A;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.pages.Globalsqa;
 import sda.utilities.ConfigReader;
 import sda.utilities.Driver;
 
-public class C10HwDeopsite {
+public class C10HwDeopsiteLongTask {
     @Test
     public void deopsite() {
 
