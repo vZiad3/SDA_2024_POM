@@ -14,6 +14,7 @@ public class Globalsqa {
     Faker faker = new Faker();
     public Globalsqa(){
         PageFactory.initElements(Driver.getDriver(),this);
+
     }
 
     @FindBy(xpath = "//button[.='Bank Manager Login']")

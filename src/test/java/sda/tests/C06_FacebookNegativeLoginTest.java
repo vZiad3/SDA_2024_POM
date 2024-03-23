@@ -20,10 +20,9 @@ public class C06_FacebookNegativeLoginTest {
         Driver.getDriver().get(ConfigReader.getProperty("facebookUrl"));
 
         //Log in (faker class)
+        // Method which have all the sing in fields with faker class
+
         facebookLoginPage.fakeLogin();
-       // facebookLoginPage.emailField.sendKeys();
-       // facebookLoginPage.passField.sendKeys();
-       // facebookLoginPage.clickButtonField.click();
 
         //Test the "Failed to login" message
         Assert.assertTrue(facebookLoginPage.errorMess.isDisplayed());

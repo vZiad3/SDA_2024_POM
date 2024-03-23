@@ -10,8 +10,8 @@ public class C09Depositetask {
     public void deopsite() {
 
 
-        Globalsqa globalsqa = new Globalsqa();
-        //Open 5 new  Accounts, deposit 100 USD and withdraw 100 USD from any account and delete all accounts you created.
+Globalsqa globalsqa = new Globalsqa();
+    //Open 5 new  Accounts, deposit 100 USD and withdraw 100 USD from any account and delete all accounts you created.
 //
 //Given
 //    Go to url https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login
@@ -105,4 +105,4 @@ public class C09Depositetask {
 
 
     }
-}
+}//
