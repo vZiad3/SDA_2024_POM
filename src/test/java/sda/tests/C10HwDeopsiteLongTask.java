@@ -1,5 +1,6 @@
 package sda.tests;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sda.pages.Globalsqa;
@@ -8,7 +9,7 @@ import sda.utilities.Driver;
 
 public class C10HwDeopsiteLongTask {
     @Test
-    public void deopsite() {
+    public void deopsite() throws InterruptedException {
 
 
         Globalsqa globalsqa = new Globalsqa();
@@ -40,9 +41,11 @@ public class C10HwDeopsiteLongTask {
 //    Click on "Open Account"  button
 //And
         globalsqa.openAccountButton.click();
+
+
 //    Click on "Customer" dropdown
 //And
-        globalsqa.dropDown.click();
+       globalsqa.dropDown.click();
 
 
 //    Select customer name
@@ -54,26 +57,31 @@ public class C10HwDeopsiteLongTask {
 
 //And
 //    Select "Dollar"
-        globalsqa.setCurrency(0); // which's equal to "Dolar"
+       globalsqa.setCurrency(1); // which's equal to "Dolar"
+        globalsqa.currency.click();
+
 //And
 //    Click on "Process" button
-        globalsqa.processButton.click();
+       globalsqa.processButton.click();
+
 //And
 //    Accept alert
-        globalsqa.alert.accept();
+        //globalsqa.alert.accept();
 //And
 //    Open 4 more accounts
-        globalsqa.addingNumOfAccounts(4);
+        //globalsqa.addingNumOfAccounts(4);
 //And
 //    Click on "Customers" button
+        Thread.sleep(1000);
+        Driver.getDriver().switchTo().alert().accept();
         globalsqa.customerButton.click();
 //And
 //    Count table row numbers
-        System.out.println("globalsqa.rowCount = " + globalsqa.rowCount);
+        System.out.println("globalsqa.rowCount = " + globalsqa.rowCount());
 
 //Then
 //    Assert that you created 5 customers
-        Assert.assertEquals(globalsqa.rowCount,4);
+        Assert.assertEquals(globalsqa.rowCount(),4);
 //When
 //    Click on "Home" button
         globalsqa.homeButton.click();
@@ -134,11 +142,11 @@ public class C10HwDeopsiteLongTask {
 
 //And
 //    Count table row numbers
-        System.out.println("row coutn is  = " + globalsqa.rowCount);
+        System.out.println("row coutn is  = " + globalsqa.rowCount());
 
 //Then
 //    Assert that number of customers is 0
-        Assert.assertTrue(globalsqa.rowCountAssertLast);    // if the row <=0 it will be true :)
+        Assert.assertTrue(globalsqa.rowCountAssertLast());    // if the row <=0 it will be true :)
 
 
     }

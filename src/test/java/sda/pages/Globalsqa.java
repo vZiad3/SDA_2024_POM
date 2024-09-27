@@ -13,15 +13,16 @@ public class Globalsqa {
 
     Faker faker = new Faker();
     Select select;
-     public Alert alert = Driver.getDriver().switchTo().alert();
+     //public Alert alert = Driver.getDriver().switchTo().alert();
 
     public Globalsqa(){
         PageFactory.initElements(Driver.getDriver(),this);
-
     }
 
     @FindBy(xpath = "//button[.='Bank Manager Login']")
     public WebElement bankMangLogin;
+
+//    @FindBy(id = "name")
 
     @FindBy(xpath = "//button[@ng-class='btnClass1']")
     public WebElement addCustomer;
@@ -36,7 +37,7 @@ public class Globalsqa {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement addCustButton;
 
-    @FindBy(className = "btn home")
+    @FindBy(xpath = "//button[contains(text(),'Home')]")
     public WebElement homeButton;
 
     @FindBy(linkText = "    Customer Login\n")
@@ -49,12 +50,12 @@ public class Globalsqa {
     public  WebElement dropDown;
     @FindBy(id = "currency")
     public  WebElement currency;
-    @FindBy(linkText = "Process")
+    @FindBy(xpath = "//button[.='Process']")
     public  WebElement processButton;
 
-    @FindBy(xpath = " //button[@ng-class='btnClass3']")
+    @FindBy(xpath = "//button[@ng-click='showCust()']")
     public WebElement customerButton;
-    @FindBy(xpath = " //table[@class='table table-bordered table-striped']")
+    @FindBy(tagName = "table")
     public WebElement fullTable;
 
     @FindBy(linkText = "Login")
@@ -66,7 +67,6 @@ public class Globalsqa {
     public WebElement amountInput;
     @FindBy(xpath = "//*[.='Deposit']")
     public WebElement depositeButton;
-
 
     @FindBy(xpath = "//*[.='Deposit Successful']")
     public WebElement sucessMess;
@@ -86,12 +86,12 @@ public class Globalsqa {
 
 
     public void selectDropDown1(int idnex) {
-         new Select(dropDown);
+         select = new Select(dropDown);
         select.selectByIndex(idnex);
     }
 
     public void setCurrency(int valueOfCurrency){
-        new Select(currency);
+       select= new Select(currency);
         select.selectByIndex(valueOfCurrency);
     }
 
@@ -102,21 +102,22 @@ public class Globalsqa {
         lName.sendKeys(faker.name().lastName());
         postalCode.sendKeys(faker.address().zipCode());
         addCustButton.click();
-        // Alert alert = Driver.getDriver().switchTo().alert();
-        alert.accept();
+        Driver.getDriver().switchTo().alert().accept();
         }
     }
 
     //Here i used for loop and faker, so in every itreation it will chose random index for the Customer name and Currency
     public void addingNumOfAccounts(int numberOfAcc){
-        for (int x = numberOfAcc ; x < 4 ; x++){
+        for (int x = 0 ; x < numberOfAcc ; x++){
             selectDropDown1(faker.number().numberBetween(0,3));
             setCurrency(faker.number().numberBetween(0,2));
             processButton.click();
-            alert.accept();
+            //Driver.getDriver().switchTo().alert().accept();
         }
     }
-    public int rowCount = fullTable.findElements(By.xpath(".//tr")).size();
+    public int rowCount(){
+        return fullTable.findElements(By.xpath(".//tr")).size();
+    }
     // Table tasks
   //  public  void table(){
   //      int rowCoun2t = fullTable.findElements(By.xpath(".//tr")).size();
@@ -132,7 +133,11 @@ public class Globalsqa {
             deleteButton.click();   // it will be clicked and the number will reduce from 5 to 4 all the way to 0
         }
     }
-    public boolean rowCountAssertLast = fullTable.findElements(By.xpath(".//tr")).size()<=0;
+
+    public boolean rowCountAssertLast(){
+
+        return fullTable.findElements(By.xpath(".//tr")).size()<=0;
+    }
 
 }
 

@@ -18,26 +18,26 @@ Globalsqa globalsqa = new Globalsqa();
 //
 //When
 //    Click on "Bank Manager Login" button
-        globalsqa.bankMangLogin.click();
-//And
-//    Click on "Add Customer" button
-        globalsqa.addCustomer.click();
-//And
-//    Fill inputs and click on "Add Customer" submit button
-        globalsqa.addCustomerPage();
-//And
-//    Accept alert
-        //Handled with setAdd method
-//And
-//    Add 4 more customers
-        // dont usnig for loop with set method
-//And
-// clicking on home page so we can locate the other element and ocntinue our tasks
-        globalsqa.homeButton.click();
-        globalsqa.bankMangLogin.click();
-//    Click on "Open Account"  button
-//And
-        globalsqa.openAccountButton.click();
+//        globalsqa.bankMangLogin.click();
+////And
+////    Click on "Add Customer" button
+//        globalsqa.addCustomer.click();
+////And
+////    Fill inputs and click on "Add Customer" submit button
+//        globalsqa.addCustomerPage();
+////And
+////    Accept alert
+//        //Handled with setAdd method
+////And
+////    Add 4 more customers
+//        // dont usnig for loop with set method
+////And
+//// clicking on home page so we can locate the other element and ocntinue our tasks
+//        globalsqa.homeButton.click();
+//        globalsqa.bankMangLogin.click();
+////    Click on "Open Account"  button
+////And
+//        globalsqa.openAccountButton.click();
 //    Click on "Customer" dropdown
 //And
 
